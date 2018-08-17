@@ -1,0 +1,15 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: spring-cloud-gateway
+zuul:
+  routes:
+    employee-api:
+      path: /consumer/**
+      service-id: spring-cloud-consumer
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8081/eureka/,http://peer2:8082/eureka/,http://peer3:8083/eureka/
+    fetch-registry: true

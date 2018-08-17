@@ -1,0 +1,17 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lijinghao1997/configs/
+          search-path: service-producer
+          username: lijinghao1997@outlook.com
+          password: Kty19890309
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8081/eureka/,http://peer2:8082/eureka/,http://peer3:8083/eureka/
