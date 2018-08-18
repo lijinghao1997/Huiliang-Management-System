@@ -24,7 +24,7 @@
         </javaTypeResolver>
 
         <!-- targetProject:生成PO类的位置 -->
-        <javaModelGenerator targetPackage="com.example.huiliang.entity"
+        <javaModelGenerator targetPackage="com.huiliang.authservice.domain"
                             targetProject="src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
@@ -33,7 +33,7 @@
         </javaModelGenerator>
 
         <!-- targetProject:mapper映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="mappers"
+        <sqlMapGenerator targetPackage="mapper"
                          targetProject="src/main/resources">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
@@ -41,18 +41,16 @@
 
         <!-- targetPackage：mapper接口生成的位置 -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.example.huiliang.mapper"
+                             targetPackage="com.huiliang.authservice.mapper"
                              targetProject="src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
-
-        <!-- 指定数据库表 --><!--
         <table tableName="employee" domainObjectName="Employee" enableSelectByExample="false" enableCountByExample="false"  enableUpdateByExample="false" enableDeleteByExample="false" ></table>
-        <table tableName="oil" domainObjectName="Oil" enableSelectByExample="false" enableCountByExample="false"  enableUpdateByExample="false" enableDeleteByExample="false" ></table>
-        <table tableName="sales_status" domainObjectName="SalesStatus" enableSelectByExample="false" enableCountByExample="false"  enableUpdateByExample="false" enableDeleteByExample="false" ></table>-->
-
         <table tableName="employee_role" domainObjectName="EmployeeRole" enableSelectByExample="false" enableCountByExample="false"  enableUpdateByExample="false" enableDeleteByExample="false" ></table>
+        <table tableName="role" domainObjectName="Role" enableSelectByExample="false" enableCountByExample="false"  enableUpdateByExample="false" enableDeleteByExample="false" ></table>
+        <table tableName="role_permission" domainObjectName="RolePermission" enableSelectByExample="false" enableCountByExample="false"  enableUpdateByExample="false" enableDeleteByExample="false" ></table>
+        <table tableName="permission" domainObjectName="Permission" enableSelectByExample="false" enableCountByExample="false"  enableUpdateByExample="false" enableDeleteByExample="false" ></table>
     </context>
 </generatorConfiguration>
 
