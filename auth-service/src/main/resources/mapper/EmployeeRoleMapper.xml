@@ -25,4 +25,12 @@
     FROM employee_role
     WHERE employee_id=#{id}
   </select>
+
+  <select id="getRoleNameByEmployeeId" resultType="string">
+    SELECT
+    role.name
+    FROM role
+    left JOIN employee_role er ON role.id=er.role_id
+    WHERE er.employee_id=#{id}
+  </select>
 </mapper>

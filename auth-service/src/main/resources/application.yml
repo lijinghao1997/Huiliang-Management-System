@@ -1,4 +1,10 @@
-mybatis:
-  config-location: classpath:mybatis-config.xml
-  mapper-locations: classpath:/mapper/*.xml
-  type-aliases-package: com.huiliang.authservice.domain
+server:
+  port: 9001
+spring:
+  application:
+    name: authentication-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:7001/eureka/,http://peer2:7002/eureka/,http://peer3:7003/eureka/
+    fetch-registry: true

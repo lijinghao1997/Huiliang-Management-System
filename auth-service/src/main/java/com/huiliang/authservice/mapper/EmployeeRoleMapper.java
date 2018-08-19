@@ -11,4 +11,6 @@ public interface EmployeeRoleMapper {
     List<EmployeeRole> selectAll();
 
     String getRoleIdByEmployeeId(@Param("id")String id);
+
+    String getRoleNameByEmployeeId(@Param("id")String id);
 }

@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 7004
 spring:
   application:
     name: spring-cloud-gateway
@@ -11,5 +11,5 @@ zuul:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://peer1:8081/eureka/,http://peer2:8082/eureka/,http://peer3:8083/eureka/
+      defaultZone: http://peer1:7001/eureka/,http://peer2:7002/eureka/,http://peer3:7003/eureka/
     fetch-registry: true

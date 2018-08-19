@@ -1,8 +1,8 @@
 server:
-  port: 8083
+  port: 7003
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://peer1:8081/eureka/,http://peer2:8082/eureka/
+      defaultZone: http://peer1:7001/eureka/,http://peer2:7002/eureka/
   instance:
     hostname: peer3

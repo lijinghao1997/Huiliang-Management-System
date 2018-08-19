@@ -6,7 +6,9 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EmployeeRoleServiceImpl implements EmployeeRoleService {
     private Logger logger= LoggerFactory.getLogger(EmployeeServiceImpl.class);
     @Autowired
@@ -23,5 +25,14 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
             return null;
         }
         return employeeRoleMapper.getRoleIdByEmployeeId(id);
+    }
+
+    @Override
+    public String getRoleNameByEmployeeId(String id) {
+        if(StringUtils.isEmpty(id)){
+            logger.error("id为空无法查询RoleName");
+            return null;
+        }
+        return employeeRoleMapper.getRoleNameByEmployeeId(id);
     }
 }
