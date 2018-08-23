@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiliang.oilservice.mapper.OilMapper">
+    <resultMap id="BaseResultMap" type="entity.Oil">
+        <result column="id" jdbcType="VARCHAR" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="no" jdbcType="SMALLINT" property="no" />
+        <result column="price" jdbcType="DECIMAL" property="price" />
+        <result column="type" jdbcType="SMALLINT" property="type" />
+        <result column="create_date" jdbcType="DATE" property="createDate" />
+        <result column="update_date" jdbcType="DATE" property="updateDate" />
+    </resultMap>
+    <insert id="insert" parameterType="entity.Oil">
+        insert into oil (id, name, no,
+        price, type, create_date,
+        update_date)
+        values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{no,jdbcType=SMALLINT},
+        #{price,jdbcType=DECIMAL}, #{type,jdbcType=SMALLINT}, now(),
+        now())
+    </insert>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, name, no, price, type, create_date, update_date
+        from oil
+    </select>
+
+    <select id="getByName" resultMap="BaseResultMap">
+        SELECT
+        *
+        FROM
+        oil
+        where name=#{name}
+    </select>
+
+    <select id="getByNo" resultMap="BaseResultMap">
+        SELECT
+        *
+        FROM
+        oil
+        where no=#{no}
+    </select>
+
+    <update id="updateOilByNo">
+        UPDATE
+        oil
+        set price=#{price},update_date=now()
+        where
+        no=#{no}
+    </update>
+</mapper>

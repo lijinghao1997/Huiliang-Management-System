@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE com.huiliang.employeeservice.mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-com.huiliang.employeeservice.mapper.dtd">
+<com.huiliang.employeeservice.mapper namespace="com.huiliang.authservice.com.huiliang.employeeservice.mapper.RoleMapper">
+  <resultMap id="BaseResultMap" type="com.huiliang.authservice.domain.Role">
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.huiliang.authservice.domain.Role">
+    insert into role (id, name, create_date, 
+      update_date)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, create_date, update_date
+    from role
+  </select>
+</com.huiliang.employeeservice.mapper>

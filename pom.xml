@@ -16,7 +16,6 @@
         <module>auth-service</module>
         <module>oil-service</module>
         <module>sales-situation-service</module>
-        <module>huiliang</module>
         <module>huiliang-common</module>
     </modules>
 

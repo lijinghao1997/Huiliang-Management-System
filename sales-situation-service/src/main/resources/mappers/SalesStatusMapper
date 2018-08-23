@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiliang.salessituationservice.mapper.SalesStatusMapper">
+    <resultMap id="BaseResultMap" type="entity.SalesStatus">
+        <result column="id" jdbcType="VARCHAR" property="id" />
+        <result column="user_id" jdbcType="VARCHAR" property="userId" />
+        <result column="oil_id" jdbcType="VARCHAR" property="oilId" />
+        <result column="amount" jdbcType="INTEGER" property="amount" />
+        <result column="create_date" jdbcType="DATE" property="createDate" />
+        <result column="update_date" jdbcType="DATE" property="updateDate" />
+    </resultMap>
+    <insert id="insert" parameterType="entity.SalesStatus">
+        insert into sales_status (id, user_id, oil_id,
+        amount, create_date, update_date
+        )
+        values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{oilId,jdbcType=VARCHAR},
+        #{amount,jdbcType=INTEGER}, now(), now()
+        )
+    </insert>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, user_id, oil_id, amount, create_date, update_date
+        from sales_status
+    </select>
+
+    <select id="getByDate" resultMap="BaseResultMap">
+        SELECT
+        *
+        FROM
+        sales_status
+        WHERE create_date=#{date}
+    </select>
+
+    <select id="getByOilIdAndCreateDate" resultMap="BaseResultMap">
+        SELECT
+        *
+        FROM
+        sales_status
+        WHERE create_date=#{date}
+    </select>
+</mapper>

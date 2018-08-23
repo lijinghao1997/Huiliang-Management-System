@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE com.huiliang.employeeservice.mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-com.huiliang.employeeservice.mapper.dtd">
+<com.huiliang.employeeservice.mapper namespace="com.huiliang.authservice.com.huiliang.employeeservice.mapper.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.huiliang.authservice.domain.Employee">
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="salary" jdbcType="DECIMAL" property="salary" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="update_date" jdbcType="DATE" property="updateDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.huiliang.authservice.domain.Employee">
+    insert into employee (id, name, password, 
+      salary, create_date, update_date
+      )
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{salary,jdbcType=DECIMAL}, #{createDate,jdbcType=DATE}, #{updateDate,jdbcType=DATE}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, password, salary, create_date, update_date
+    from employee
+  </select>
+
+  <select id="getByName" resultMap="BaseResultMap">
+    SELECT
+    id, name, password, salary, create_date, update_date
+    from employee
+    where name=#{name}
+  </select>
+</com.huiliang.employeeservice.mapper>
