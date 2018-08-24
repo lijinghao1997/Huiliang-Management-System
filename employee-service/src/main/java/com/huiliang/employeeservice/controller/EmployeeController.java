@@ -55,7 +55,6 @@ public class EmployeeController {
             logger.error("根据用户%s无法查找用户");
             return serverResponse;
         }
-        employee.setPassword("");
         serverResponse.setStatus(ResponseCode.SUCCESS.getCode());
         serverResponse.setData(employee);
         return serverResponse;

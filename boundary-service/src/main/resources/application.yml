@@ -3,8 +3,14 @@ server:
 spring:
   application:
     name: Boundary-Service
+  profiles:
+    active: dev
 eureka:
   client:
     fetch-registry: true
     serviceUrl:
       defaultZone: http://peer1:7001/eureka/,http://peer2:7002/eureka/,http://peer3:7003/eureka/
+mybatis:
+  mapper-locations: classpath:/mappers/*.xml
+  config-location: classpath:mybatis-config.xml
+  type-aliases-package: com.huiliang.huiliangcommon.entity

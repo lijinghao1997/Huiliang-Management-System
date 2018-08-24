@@ -5,7 +5,7 @@
         <result column="id" jdbcType="VARCHAR" property="id" />
         <result column="name" jdbcType="VARCHAR" property="name" />
         <result column="password" jdbcType="VARCHAR" property="password" />
-        <result column="salary" jdbcType="DECIMAL" property="salary" />
+        <result column="salary" jdbcType="DOUBLE" property="salary" />
         <result column="create_date" jdbcType="DATE" property="createDate" />
         <result column="update_date" jdbcType="DATE" property="updateDate" />
     </resultMap>
@@ -24,7 +24,7 @@
 
     <select id="selectByName" resultMap="BaseResultMap">
     SELECT
-    id, name, password, salary, create_date, update_date
+    *
     from employee
     where name=#{name}
   </select>

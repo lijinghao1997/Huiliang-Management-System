@@ -16,6 +16,16 @@ public class ServerResponseFactory {
         return serverResponse;
     }
 
+
+    public static <T> ServerResponse createSuccessResponseByDataAndMsg(T data,String msg){
+        ServerResponse serverResponse=new ServerResponse();
+        serverResponse.setData(data);
+        serverResponse.setMsg(msg);
+        serverResponse.setStatus(ResponseCode.SUCCESS.getCode());
+        return serverResponse;
+    }
+
+
     public static ServerResponse createNotFound(String msg){
         ServerResponse serverResponse=new ServerResponse();
         serverResponse.setMsg(msg);

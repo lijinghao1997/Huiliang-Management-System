@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -15,7 +17,8 @@ public class EmployeeController {
     private EmployeeRemote employeeRemote;
     @RequestMapping("/getAll")
     public ServerResponse getAll(){
-        return employeeRemote.getAll();
+        ServerResponse response=employeeRemote.getAll();
+        return response;
     }
     @RequestMapping("/employee")
     public ServerResponse add(Employee employee){

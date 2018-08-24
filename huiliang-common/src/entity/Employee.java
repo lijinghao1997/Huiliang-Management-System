@@ -10,7 +10,7 @@ public class Employee {
 
     private transient String password;
 
-    private BigDecimal salary;
+    private Double salary;
 
     private Date createDate;
 
@@ -52,11 +52,11 @@ public class Employee {
         this.password = password == null ? null : password.trim();
     }
 
-    public BigDecimal getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(BigDecimal salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
