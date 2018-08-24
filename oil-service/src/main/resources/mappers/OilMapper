@@ -18,7 +18,8 @@
         #{price,jdbcType=DECIMAL}, #{type,jdbcType=SMALLINT}, now(),
         now())
     </insert>
-    <select id="selectAll" resultMap="BaseResultMap">
+
+    <select id="selectAll" resultMap="BaseResultMap" resultType="list">
         select id, name, no, price, type, create_date, update_date
         from oil
     </select>

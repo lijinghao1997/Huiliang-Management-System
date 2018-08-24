@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.UUID;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     private Logger logger= LoggerFactory.getLogger(EmployeeServiceImpl.class);
@@ -25,6 +27,12 @@ public class EmployeeServiceImpl implements EmployeeService {
             logger.error("EmployeeService无法插入，传入记录为空");
             return 0;
         }
+        Employee currentEmployee=getByName(employee.getName());
+        if(currentEmployee!=null){
+            logger.error("username exists");
+            return 0;
+        }
+        employee.setId(UUID.randomUUID().toString());
         return employeeMapper.insert(employee);
     }
 

@@ -14,11 +14,11 @@
         salary, create_date, update_date
         )
         values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-        #{salary,jdbcType=DECIMAL}, #{createDate,jdbcType=DATE}, #{updateDate,jdbcType=DATE}
+        #{salary,jdbcType=DECIMAL}, now(), now()
         )
     </insert>
     <select id="selectAll" resultMap="BaseResultMap">
-        select id, name, password, salary, create_date, update_date
+        select id, name, salary, create_date, update_date
         from employee
     </select>
 

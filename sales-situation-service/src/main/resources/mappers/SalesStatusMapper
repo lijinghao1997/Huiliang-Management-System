@@ -9,6 +9,7 @@
         <result column="create_date" jdbcType="DATE" property="createDate" />
         <result column="update_date" jdbcType="DATE" property="updateDate" />
     </resultMap>
+
     <insert id="insert" parameterType="entity.SalesStatus">
         insert into sales_status (id, user_id, oil_id,
         amount, create_date, update_date
@@ -21,7 +22,6 @@
         select id, user_id, oil_id, amount, create_date, update_date
         from sales_status
     </select>
-
     <select id="getByDate" resultMap="BaseResultMap">
         SELECT
         *
@@ -29,7 +29,6 @@
         sales_status
         WHERE create_date=#{date}
     </select>
-
     <select id="getByOilIdAndCreateDate" resultMap="BaseResultMap">
         SELECT
         *

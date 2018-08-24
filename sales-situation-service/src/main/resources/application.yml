@@ -3,12 +3,12 @@ server:
 spring:
   application:
     name: Sales-Service
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:/mappers/*.xml
+  type-aliases-package: com.huiliang.huiliangcommon.entity
 eureka:
   client:
     fetch-registry: true
     serviceUrl:
       defaultZone: http://peer1:7001/eureka/,http://peer2:7002/eureka/,http://peer3:7003/eureka/
-mybatis:
-  config-location: classpath:mybatis-config.xml
-  mapper-locations: classpath:/mappers/*.xml
-  type-aliases-package: com.huiliang.huiliangcommon.entity

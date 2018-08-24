@@ -1,11 +1,12 @@
 package com.huiliang.salessituationservice.mapper;
 
 import entity.SalesStatus;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
 import java.util.List;
-
+@Mapper
 public interface SalesStatusMapper {
 
     int insert(SalesStatus record);

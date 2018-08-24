@@ -9,11 +9,10 @@
     <name>managesystem</name>
 
     <modules>
-        <module>auth-service</module>
         <module>employee-service</module>
         <module>spring-config-server</module>
         <module>spring-zuul</module>
-        <module>auth-service</module>
+        <module>boundary-service</module>
         <module>oil-service</module>
         <module>sales-situation-service</module>
         <module>huiliang-common</module>

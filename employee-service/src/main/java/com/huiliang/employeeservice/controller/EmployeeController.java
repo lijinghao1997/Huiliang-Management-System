@@ -3,6 +3,7 @@ package com.huiliang.employeeservice.controller;
 import com.huiliang.employeeservice.service.EmployeeService;
 import common.ResponseCode;
 import common.ServerResponse;
+import common.ServerResponseFactory;
 import entity.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 
@@ -37,9 +40,8 @@ public class EmployeeController {
 
     @RequestMapping(value = "/employees")
     public ServerResponse getAll(){
-        ServerResponse serverResponse=new ServerResponse();
-        serverResponse.setStatus(ResponseCode.SUCCESS.getCode());
-        serverResponse.setData(employeeService.getAll());
+        List<Employee> employeeList=employeeService.getAll();
+        ServerResponse serverResponse= ServerResponseFactory.createSuccessResponseByData(employeeList);
         return serverResponse;
     }
 
