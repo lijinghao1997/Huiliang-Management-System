@@ -2,11 +2,14 @@ package com.huiliang.boundaryservice.controller;
 
 import com.huiliang.boundaryservice.remote.EmployeeRemote;
 import com.huiliang.boundaryservice.service.RoleService;
+import common.JWTToken;
 import common.ServerResponse;
 import common.ServerResponseFactory;
 import entity.Employee;
 import entity.Role;
 import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -32,6 +35,7 @@ public class CommonController {
     public ServerResponse login(@RequestParam("username")String username,@RequestParam("password")String password){
         ServerResponse userinfo=employeeRemote.getByName(username);
         ServerResponse response=null;
+        Subject currentUser= SecurityUtils.getSubject();
         Map data=(Map)userinfo.getData();
         String currentPassword=(String)data.get("password");
         if(data==null||data.size()==0){
@@ -51,7 +55,9 @@ public class CommonController {
             response=ServerResponseFactory.createError("该用户无权限");
         }else {
             String token= JWTUtil.sign(username,role.getName(),password);
-            logger.info("%s登陆成功");
+            JWTToken jwtToken=new JWTToken(token);
+            currentUser.login(jwtToken);
+            logger.info("%s登陆成功",username);
             response=ServerResponseFactory.createSuccessResponseByDataAndMsg(token,"登陆成功");
         }
         return response;

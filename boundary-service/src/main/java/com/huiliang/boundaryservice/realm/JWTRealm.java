@@ -33,7 +33,7 @@ public class JWTRealm extends AuthorizingRealm {
     private PermissionService permissionService;
     @Override
     public boolean supports(AuthenticationToken token) {
-        return super.supports(token);
+        return true;
     }
 
     @Override
@@ -81,4 +81,6 @@ public class JWTRealm extends AuthorizingRealm {
         }
         return new SimpleAuthenticationInfo(token,token,"JWTRealm");
     }
+
+
 }
