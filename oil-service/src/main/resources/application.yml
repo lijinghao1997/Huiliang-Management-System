@@ -7,6 +7,15 @@ mybatis:
 spring:
   application:
     name: Oil-Servce
+  redis:
+    database: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 10
+        max-idle: 10
+        min-idle: 2
+    timeout: 10000
 eureka:
   client:
     fetch-registry: true

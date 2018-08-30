@@ -21,7 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeMapper employeeMapper;
     @Override
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional()
     public int add(Employee employee) {
         if(employee==null){
             logger.error("EmployeeService无法插入，传入记录为空");

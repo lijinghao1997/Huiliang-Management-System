@@ -7,6 +7,7 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,6 +35,7 @@ public class OilServiceImpl implements OilService {
         return oilMapper.selectAll();
     }
 
+    @Cacheable(value = "oil",key = "#root.args[0]",unless = "#result eq null")
     @Override
     public Oil getByNo(Short no) {
         if(no==null){
